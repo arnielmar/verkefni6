@@ -20,7 +20,11 @@ main {
   padding-right: 20px;
 }
 
-/* TODO taka ætti padding af main þegar komið er fyrir ofan hámarksbreidd */
+@media (min-width: 1490px) {
+  main {
+    padding: 0;
+  }
+}
 
 .title {
   text-align: center;
@@ -42,6 +46,7 @@ main {
 
 /* grid fyrir efni, setja þarf upp í html */
 
+
 .grid__row {
   display: flex;
   flex-direction: column;
@@ -55,23 +60,40 @@ main {
   padding-left: 10px;
 }
 
-/* TODO setja upp grid fyrir >= 1000px */
+@media (min-width: 1000px) {
 
-/* TODO koma mynd fyrir á öðrum stað í < 1000px */
+  grid__col {
+    width: 50%;
+    margin-bottom: 40px;
+  }
 
-/* grid fyrir cards */
-
-.cards {
 }
 
-/* TODO útfæra grid fyrir cards */
+@media (max-width: 999px) {
 
-/*
-  .card kemur óbreytt úr sýnilausn á verkefni 5 fyrir utan responsive stíla og
-  að það fær `height: 100%;`
-  Sýnilausn verður gefin út við lok dags miðvikudaginn 3. okt
-  .card stílar úr v5 (eða sýnilausn...)
-*/
+  .image__move {
+    order: 1;
+  }
+
+}
+
+.cards__row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.cards__col {
+  width: 50%;
+
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 10px;
+}
+
 .card {
   display: flex;
   flex-direction: column;
@@ -100,6 +122,7 @@ main {
 .card__content {
   display: flex;
   flex: 1;
+  padding-bottom: 20px;
 }
 
 .card__text {
@@ -136,4 +159,44 @@ main {
   order: -1;
 }
 
-/* TODO responsive stílar fyrir .card */
+@media (max-width: 699px) {
+
+  .cards__col {
+    width: 100%
+  }
+
+  .card {
+    max-width: none;
+    max-height: none;
+
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 2px solid #aaa;
+    border-radius: 0;
+
+    padding-left: 0;
+    padding-right: 20px;
+  }
+
+  .card__content {
+    flex-direction: column;
+  }
+
+  .card__text {
+    margin-bottom: 20px;
+  }
+
+  .card__image {
+    padding-right: 0;
+  }
+
+}
+
+@media (min-width: 1000px) {
+
+  .cards__col {
+    width: 33.3333%;
+  }
+
+}
