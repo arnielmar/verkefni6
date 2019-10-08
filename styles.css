@@ -62,7 +62,11 @@ main {
 
 @media (min-width: 1000px) {
 
-  grid__col {
+  .grid__row {
+    flex-direction: row;
+  }
+
+  .grid__col {
     width: 50%;
     margin-bottom: 40px;
   }
